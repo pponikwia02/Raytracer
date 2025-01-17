@@ -22,8 +22,7 @@ class vec3
     vec3& operator *=(const vec3& v) {x*=v.x; y*=v.y; z*=v.z; return *this;}
     vec3& operator /=(const vec3& v) {x/=v.x; y/=v.y; z/=v.z; return *this;}
     
-    friend std::ostream& operator<<(std::ostream& out, vec3& v)
-    {return out<<v.x<<" "<<v.y<" "<<v.z<<"\n";}
+    
     friend vec3 operator * (const T &r, const vec3 &v)
     { return vec3<T>(v.x * r, v.y * r, v.z * r); }
     friend vec3 operator / (const T &r, const vec3 &v)
@@ -36,4 +35,10 @@ class vec3
     T lengthSquared() const {return x*x+y*y+z*z;}
     T dotProduct(const vec3& v) {return *this *= v;}
     vec3 crossProduct(const vec3& v) {return vec3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);}
+      friend std::ostream& operator << (std::ostream &s, const vec3<T> &v)
+    {
+        return s  << v.x << ' ' << v.y << ' ' << v.z << '\n';
+    }
 };
+using point3 = vec3<double>;
+using vec3d = vec3<double>;
