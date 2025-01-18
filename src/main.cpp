@@ -1,7 +1,9 @@
+#include "color.hpp"
 #include "camera.hpp"
 int main()
 {
-   camera cam(256,1.0);
+   auto aspec_ratio = 16.0/9.0;
+   camera cam(800,aspec_ratio);
    cam.render();
   
     
